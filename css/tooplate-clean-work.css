@@ -711,12 +711,191 @@ strong {
 }
 
 /*---------------------------------------
+  ORGANOGRAM              
+-----------------------------------------*/
+.organogram-section {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.organogram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.organogram-level {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+.organogram-node {
+  text-align: center;
+  background: #ffffff;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  min-width: 140px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.organogram-node:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.organogram-node h4 {
+  font-size: 1rem;
+  color: #333333;
+  margin: 0;
+}
+
+/* Connector lines */
+.connector {
+  position: absolute;
+  top: 155%;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: #007bff;
+  transform: translate(-50%, -50%);
+}
+
+.organogram-level > .organogram-node .connector {
+  height: 50px;
+}
+
+/* Adjust organogram layout for smaller screens */
+@media (max-width: 768px) {
+  /* Maintain top-level structure */
+  .organogram-level {
+      display: flex;
+      flex-wrap: wrap; /* Allow items to wrap */
+      justify-content: center; /* Center items */
+      gap: 15px; /* Add spacing between items */
+  }
+
+  /* Each node styling */
+  .organogram-node {
+      flex: 1 1 45%; /* Allow two nodes side-by-side */
+      max-width: 45%; /* Limit node width */
+      text-align: center;
+      margin-bottom: 20px; /* Add spacing between rows */
+      position: relative; /* Allow connectors to adjust */
+  }
+
+  /* Connectors styling */
+  .connector {
+    position: absolute;
+    width: 2px; /* Thickness of the connector */
+    background-color: #007bff; /* Connector color */
+    height: 600px; /* Adjust this value for longer connectors */
+    left: 50%;
+    top: 100%; /* Start from the bottom of the node */
+    transform: translateX(-50%);
+
+  }
+
+  /* Vertical connector */
+  .connector.vertical {
+      width: 2px;
+      height: 50px; /* Adjust based on spacing */
+      left: 50%;
+      top: 100%; /* Position below the node */
+      transform: translateX(-50%);
+  }
+
+  /* Horizontal connector */
+  .connector.horizontal {
+      height: 2px;
+      width: 50%; /* Adjust based on gaps */
+      top: calc(100% + 15px);
+      position: absolute;
+  }
+
+  /* Layout for Director General and Directors */
+  .director-general-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center-align items */
+      gap: 15px; /* Add spacing between rows */
+  }
+
+  .director-general {
+      display: flex;
+      flex-wrap: wrap; /* Allow directors to wrap */
+      gap: 15px;
+      justify-content: center; /* Center-align directors */
+  }
+
+  .director {
+      flex: 1 1 calc(50% - 20px); /* Ensure two directors per row */
+      max-width: calc(50% - 20px);
+      text-align: center;
+  }
+}
+
+/* General connector styles */
+.connector {
+  position: absolute;
+  width: 2px; /* Thickness of the connector */
+  background-color: #007bff; /* Connector color */
+  left: 50%; /* Center the connector */
+  top: 100%; /* Start from the bottom of the node */
+  transform: translateX(-50%);
+}
+
+/* Default height for larger screens */
+.connector {
+  height: 60px; /* Default connector height */
+}
+
+/* Adjust connector length for smaller screens */
+@media (max-width: 768px) {
+  /* Connector for Member x2 to Director General */
+  .organogram-level > .organogram-node .connector {
+    height: 140px; /* Increase height for smaller screens */
+  }
+
+  /* Connector adjustments for complex layouts */
+  .connector.vertical {
+    height: 120px; /* Adjust this for the gap between levels */
+  }
+
+  .connector.horizontal {
+    height: 2px; /* Horizontal connectors remain thin */
+    width: 70px; /* Adjust based on layout gaps */
+    top: calc(100% + 10px); /* Adjust vertical position */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Director General Container Adjustments */
+.director-general-container {
+  position: relative;
+  margin-top: 20px; /* Add spacing from Member x2 */
+}
+
+.director-general .connector {
+  height: 80px; /* Adjust connector height for Director General */
+}
+
+
+
+
+/*---------------------------------------
   NAVIGATION              
 -----------------------------------------*/
 .navbar {
   background: transparent;
   position: absolute;
-  top: 50px;
+  top: 85px;
   right: 0;
   left: 0;
   z-index: 9;
@@ -2008,6 +2187,78 @@ p {
   animation-play-state: paused;
 }
 
+
+/* Logo Container */
+.logo-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+
+/* Outer Rotating Part */
+.logo-outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: rotate 25s linear infinite;
+}
+
+.outer-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Inner Fixed Part */
+.logo-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.inner-logo-img {
+  width: 120%; /* Adjust the size of the inner part */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Rotation Animation */
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .logo-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .inner-logo-img {
+    width: 100%; /* Adjust proportionally for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .inner-logo-img {
+    width: 90%; /* Further reduce size for very small screens */
+  }
+}
+
 /*---------------------------------------
   SERVICES              
 -----------------------------------------*/
@@ -2501,9 +2752,13 @@ p {
   }
 
   /* Images should have consistent margins */
-  .img-fluid.rounded {
-      max-width: 90%; /* Limit image size */
+  .img-fluid.rounded,
+  .hover-zoom {
+      max-width: 100%; /* Restrict image to 100% of its container */
+      width: 100%; /* Force width to fit the container */
+      height: auto; /* Maintain aspect ratio */
       margin-bottom: 20px; /* Add space below the image */
+      overflow: hidden; /* Crop any overflow content */
   }
 
   /* Text Section */
@@ -2529,15 +2784,14 @@ p {
 
   /* Reduce image sizes for better fit */
   #intro-section .hover-zoom {
-      max-width: 80%; /* Reduce image size for better layout */
+      max-width: 100%; /* Reduce image size for better layout */
+      width: auto; /* Maintain original width */
+      height: auto; /* Maintain aspect ratio */
   }
 }
 
-
-
-
+/* Adjustments for Seed Industry Section */
 @media (max-width: 768px) {
-  /* Ensure proper spacing for rows */
   .seed-industry-section .row.align-items-center {
       flex-direction: column; /* Stack content vertically */
       text-align: center; /* Center-align text */
@@ -2546,8 +2800,11 @@ p {
 
   /* Adjust the image size and spacing */
   .seed-industry-section img.img-fluid {
-      max-width: 80%; /* Reduce image size */
+      max-width: 100%; /* Restrict image to the container width */
+      width: 100%; /* Force image to fit horizontally */
+      height: auto; /* Maintain aspect ratio */
       margin-bottom: 20px; /* Add spacing below the image */
+      overflow: hidden; /* Crop overflow */
   }
 
   /* Purpose box adjustments */
@@ -2575,6 +2832,50 @@ p {
       font-size: 1.5rem; /* Reduce heading size */
       margin-bottom: 15px; /* Add spacing below */
   }
+}
+
+
+
+/* General Image Styling */
+.img-fluid.rounded {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+/* Wrap images inside a cropping container */
+.image-container {
+    width: 100%; /* Make it responsive */
+    max-width: 90%; /* Slightly smaller width for the image */
+    height: 200px; /* Set a fixed height for the cropping effect */
+    overflow: hidden; /* Ensure overflowing parts of the image are hidden */
+    margin: 0 auto 20px; /* Center the container and add space below */
+    border-radius: 10px; /* Round corners for the container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for aesthetics */
+}
+
+/* Image fits the container, simulating cropping */
+.image-container img {
+    width: 100%; /* Ensure the image fills the container */
+    height: 100%; /* Ensure the height fits the container */
+    object-fit: cover; /* Crop the image to fit */
+}
+
+/* List item styling for smaller screens */
+.list-group-item {
+    font-size: 0.9rem; /* Smaller font size */
+    text-align: left; /* Keep alignment */
+    padding: 10px 15px;
+}
+
+/* Adjust heading size */
+h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
 }
 
 
