@@ -10,9 +10,11 @@
 
     // BACKSTRETCH SLIDESHOW
     $('.hero-section').backstretch([
-      "images/slideshow/afro-woman-cleaning-window-with-rag-home.jpg", 
-      "images/slideshow/afro-woman-holding-bucket-with-cleaning-items.jpg",
-      "images/slideshow/unrecognizable-cleaner-walking-into-hotel-room-with-tools-detergents.jpg"
+      "images/slideshow/agriculture pakistan national seed development and regulatory authority image 2.jpg", 
+      "images/slideshow/agriculture pakistan national seed development and regulatory authority image 3.jpg",
+      "images/slideshow/agriculture pakistan national seed development and regulatory authority image 1.jpg",
+      "images/slideshow/agriculture pakistan national seed development and regulatory authority image 4.jpg"
+
     ],  {duration: 2000, fade: 750});
     
     // CUSTOM LINK
