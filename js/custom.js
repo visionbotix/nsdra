@@ -11,9 +11,9 @@
     // BACKSTRETCH SLIDESHOW
     $('.hero-section').backstretch([
       "images/slideshow/agriculture pakistan national seed development and regulatory authority image 2.jpg", 
-      "images/slideshow/agriculture pakistan national seed development and regulatory authority image 3.jpg",
       "images/slideshow/agriculture pakistan national seed development and regulatory authority image 1.jpg",
-      "images/slideshow/agriculture pakistan national seed development and regulatory authority image 4.jpg"
+      "images/slideshow/tractor-vineyard.jpg",
+      "images/slideshow/unrecognizable-cleaner-walking-into-hotel-room-with-tools-detergents.jpg"
 
     ],  {duration: 2000, fade: 750});
     
