@@ -15,6 +15,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
         <link rel="manifest" href="images/favicon/site.webmanifest" />
         
+        <script src="js/OrgChart.js"></script>
 
 
         <!-- CSS FILES -->        
@@ -30,6 +31,35 @@
 
         <link href="css/tooplate-clean-work.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+        <style>
+            #tree-container {
+                width: 100%;
+                height: 100vh;
+                margin: 0 auto;
+            }
+    
+            /* Node Customization */
+            .orgchart .node {
+                font-size: 12px; /* Smaller font size */
+                line-height: 1.2; /* Compact text spacing */
+                display: flex;
+                align-items: center; /* Center text vertically */
+                justify-content: center; /* Center text horizontally */
+                text-align: center; /* Center align text */
+                padding: 5px; /* Adjust padding to reduce empty space */
+                height: 100%; /* Ensure node fills its box */
+            }
+    
+            /* Custom Field Styling */
+            .orgchart .node .field_0, /* Name field */
+            .orgchart .node .field_1 { /* Title field */
+                font-size: 12px; /* Smaller font for names and titles */
+                word-break: break-word; /* Allow long words to wrap */
+                text-align: center;
+            }
+        </style>
 
 <!--
 
@@ -222,109 +252,113 @@ Free Bootstrap 5 HTML Template
                     </div>
                 </div>
             </section>
-
-            <section class="organogram-section" id="organogram-section">
-                <div class="container text-center">
-                    <h2 class="mb-5">Organogram</h2>
-                    <div class="organogram">
-                        <!-- Chairperson -->
-                        <div class="organogram-level">
-                            <div class="organogram-node">
-                                <h4>Chairperson</h4>
-                            </div>
-                        </div>
-                        
-                        <!-- Members and Staff Officer -->
-                        <div class="organogram-level">
-                            <div class="organogram-node">
-                                <h4>Member x 2</h4>
-                                <div class="connector"></div>
-                            </div>
-                            <div class="organogram-node">
-                                <h4>Member x 2</h4>
-                                <div class="connector"></div>
-                            </div>
-                            <div class="organogram-node">
-                                <h4>Staff Officer</h4>
-                            </div>
-                        </div>
-                        
-                        <!-- Director Generals -->
-                        <div class="organogram-level">
-                            <div class="organogram-node">
-                                <h4>Director General</h4>
-                                <!-- <div class="connector"></div> -->
-                                <div class="organogram-level">
-                                    <div class="organogram-node">
-                                        <h4>Director x 3</h4>
-                                        <div class="organogram-level">
-                                            <div class="organogram-node">
-                                                <h4>Deputy Director x 3</h4>
-                                                <div class="organogram-level">
-                                                    <div class="organogram-node">
-                                                        <h4>Assistant Director x 5</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="organogram-node">
-                                        <h4>Director x 3</h4>
-                                        <div class="organogram-level">
-                                            <div class="organogram-node">
-                                                <h4>Deputy Director x 3</h4>
-                                                <div class="organogram-level">
-                                                    <div class="organogram-node">
-                                                        <h4>Assistant Director x 5</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="organogram-node">
-                                <h4>Director General</h4>
-                                <!-- <div class="connector"></div> -->
-                                <div class="organogram-level">
-                                    <div class="organogram-node">
-                                        <h4>Director x 3</h4>
-                                        <div class="organogram-level">
-                                            <div class="organogram-node">
-                                                <h4>Deputy Director x 3</h4>
-                                                <div class="organogram-level">
-                                                    <div class="organogram-node">
-                                                        <h4>Research Officer x 9</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="organogram-node">
-                                        <h4>Director x 3</h4>
-                                        <div class="organogram-level">
-                                            <div class="organogram-node">
-                                                <h4>Deputy Director x 4</h4>
-                                                <div class="organogram-level">
-                                                    <div class="organogram-node">
-                                                        <h4>IT Officer x 3</h4>
-                                                    </div>
-                                                    <div class="organogram-node">
-                                                        <h4>Plant Engineer x 2</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                                                                            
                                     
-            
+            <section class="organogram-section py-5">
+                <div class="container text-center">
+                    <h2 class="mb-4">Organogram</h2>
+                    <div id="tree-container"></div>
+                </div>
+                <script>
+                    // Initialize the OrgChart
+                    const chart = new OrgChart(document.getElementById("tree-container"), {
+                        template: "ana", // Choose a clean and modern template
+                        nodeBinding: {
+                            field_0: "name",
+                            field_1: "title"
+                        },
+                        nodes: [
+                            { id: 1, name: "Board of Governors", title: "Headed by Minister MNFSR" },
+                            { id: 2, pid: 1, name: "Chairperson" },
+                            { id: 3, pid: 2, name: "Director General", title: "Coordination" },
+                            { id: 4, pid: 2, name: "Member", title: "Planning" },
+                            { id: 5, pid: 2, name: "Member", title: "R&D and Policy Div" },
+                            { id: 6, pid: 2, name: "Member", title: "Production & Marketing Div" },
+                            { id: 7, pid: 2, name: "Member", title: "Regulatory Div" },
+                        
+                        // under the DG Coordination
 
+                            { id: 8, pid: 3, name: "Director", title: "Coordination" },
+                            { id: 9, pid: 3, name: "Director", title: "Admin & HR" },
+                            { id: 10, pid: 3, name: "Director", title: "Finance" },
+                            { id: 11, pid: 3, name: "Director", title: "IT & Tech Sp" },
+
+
+                            { id: 12, pid: 8, name: "Deputy Director", title: "Coordination" },
+                            { id: 13, pid: 12, name: "Assistant Director", title: "Coordination" },
+
+                            { id: 14, pid: 9, name: "Deputy Director", title: "Admin & HR" },
+                            { id: 15, pid: 14, name: "Assistant Director", title: "Admin & HR" },
+
+                            { id: 16, pid: 10, name: "Deputy Director", title: "Finance" },
+                            { id: 17, pid: 16, name: "Assistant Director", title: "Finance" },
+
+                            { id: 18, pid: 11, name: "Deputy Director", title: "IT & Tech Sp" },
+                            { id: 19, pid: 18, name: "Assistant Director", title: "IT & Tech Sp" },
+
+                        // under the member planning
+
+                            { id: 20, pid: 4, name: "Director General", title: "Finance" },
+                            { id: 21, pid: 20, name: "Director", title: "Finance" },
+                            { id: 22, pid: 21, name: "Deputy Director", title: "Finance" },
+                            { id: 23, pid: 22, name: "Assistant Director", title: "Finance" },
+
+
+
+                        // under the member R&D and Policy Div
+                        
+                            { id: 24, pid: 5, name: "Director", title: "R&D" },
+                            { id: 25, pid: 5, name: "Director", title: "Policy" },
+
+                            { id: 26, pid: 24, name: "Deputy Director", title: "Major & Minor Crops" },
+                            { id: 28, pid: 26, name: "Assistant Director", title: "Major & Minor Crops" },
+
+                            { id: 27, pid: 24, name: "Deputy Director", title: "Horticulture" },
+                            { id: 29, pid: 27, name: "Assistant Director", title: "Horticulture" },
+
+                        
+                            { id: 30, pid: 25, name: "Deputy Director", title: "Policy" },
+                            { id: 31, pid: 30, name: "Research Officers", title: "Policy" },
+
+
+                            // under member production and marketing
+
+                            { id: 32, pid: 6, name: "Director", title: "Production" },
+                            { id: 33, pid: 6, name: "Director", title: "Marketing" },
+
+                            { id: 34, pid: 32, name: "Deputy Director", title: "Production" },
+                            { id: 35, pid: 34, name: "Assistant Director", title: "Production" },
+
+                            { id: 36, pid: 33, name: "Deputy Director", title: "Marketing" },
+                            { id: 37, pid: 36, name: "Research Officers", title: "" },
+                            { id: 38, pid: 36, name: "Plant Engineers", title: "" },
+
+
+                            // under member Regulatory Div
+
+                            { id: 39, pid: 7, name: "Director", title: "Regulatory Affairs" },
+                            { id: 40, pid: 7, name: "Director", title: "Quality Assurance" },
+                            { id: 41, pid: 7, name: "Director", title: "Legal Affairs" },
+
+                            { id: 42, pid: 39, name: "Deputy Director", title: "Regulatory Affairs" },
+                            { id: 43, pid: 42, name: "Assistant Director", title: "Regulatory Affairs" },
+                            { id: 44, pid: 42, name: "Assistant Director", title: "Biosafety" },
+                            { id: 45, pid: 42, name: "Assistant Director", title: "IPR" },
+
+                            { id: 46, pid: 40, name: "Deputy Director", title: "Quality Assurance" },
+                            { id: 47, pid: 46, name: "Research Officers", title: "" },
+
+                            { id: 48, pid: 41, name: "Deputy Director", title: "Legal Affairs" },
+                            { id: 49, pid: 48, name: "Research Officers", title: "" },
+
+
+                        ],
+                        enableSearch: true, // Disable search bar if not needed
+                        layout: OrgChart.tree // Ensure a tree layout
+                    });
+                </script>
+            </section>
+                  
 
 
         </main>

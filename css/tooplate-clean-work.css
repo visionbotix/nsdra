@@ -713,177 +713,92 @@ strong {
 /*---------------------------------------
   ORGANOGRAM              
 -----------------------------------------*/
-.organogram-section {
-  padding: 50px 20px;
-  background-color: #f9f9f9;
+
+/* Tree Container */
+.tree ul {
+  padding-top: 20px;
+  position: relative;
+  list-style-type: none;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.organogram {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-}
-
-.organogram-level {
+/* Horizontal layout for direct subordinates */
+.tree ul.horizontal {
   display: flex;
   justify-content: center;
   gap: 20px;
-  position: relative;
 }
 
-.organogram-node {
+/* List items for nodes */
+.tree li {
+  display: inline-block;
   text-align: center;
-  background: #ffffff;
-  border: 2px solid #007bff;
-  border-radius: 10px;
-  padding: 15px 20px;
-  min-width: 140px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  padding: 10px 5px 0 5px;
 }
 
-.organogram-node:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-}
-
-.organogram-node h4 {
-  font-size: 1rem;
-  color: #333333;
-  margin: 0;
-}
-
-/* Connector lines */
-.connector {
+/* Lines connecting nodes */
+.tree li::before, .tree li::after {
+  content: '';
   position: absolute;
-  top: 155%;
+  top: 0;
+  border-top: 2px solid #ccc;
+  width: 50%;
+  height: 20px;
+}
+
+.tree li::before {
+  left: -50%;
+  border-right: 2px solid #ccc;
+}
+
+.tree li::after {
+  right: -50%;
+  border-left: 2px solid #ccc;
+}
+
+/* Remove unnecessary lines for single nodes */
+.tree li:only-child::before, .tree li:only-child::after {
+  display: none;
+}
+
+.tree li:first-child::before, .tree li:last-child::after {
+  border: 0;
+}
+
+/* Node Styling */
+.node {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+.node:hover {
+  background-color: #e3f2fd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Connecting vertical lines */
+.tree ul ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
   left: 50%;
-  width: 2px;
-  height: 30px;
-  background: #007bff;
-  transform: translate(-50%, -50%);
-}
-
-.organogram-level > .organogram-node .connector {
-  height: 50px;
-}
-
-/* Adjust organogram layout for smaller screens */
-@media (max-width: 768px) {
-  /* Maintain top-level structure */
-  .organogram-level {
-      display: flex;
-      flex-wrap: wrap; /* Allow items to wrap */
-      justify-content: center; /* Center items */
-      gap: 15px; /* Add spacing between items */
-  }
-
-  /* Each node styling */
-  .organogram-node {
-      flex: 1 1 45%; /* Allow two nodes side-by-side */
-      max-width: 45%; /* Limit node width */
-      text-align: center;
-      margin-bottom: 20px; /* Add spacing between rows */
-      position: relative; /* Allow connectors to adjust */
-  }
-
-  /* Connectors styling */
-  .connector {
-    position: absolute;
-    width: 2px; /* Thickness of the connector */
-    background-color: #007bff; /* Connector color */
-    height: 600px; /* Adjust this value for longer connectors */
-    left: 50%;
-    top: 100%; /* Start from the bottom of the node */
-    transform: translateX(-50%);
-
-  }
-
-  /* Vertical connector */
-  .connector.vertical {
-      width: 2px;
-      height: 50px; /* Adjust based on spacing */
-      left: 50%;
-      top: 100%; /* Position below the node */
-      transform: translateX(-50%);
-  }
-
-  /* Horizontal connector */
-  .connector.horizontal {
-      height: 2px;
-      width: 50%; /* Adjust based on gaps */
-      top: calc(100% + 15px);
-      position: absolute;
-  }
-
-  /* Layout for Director General and Directors */
-  .director-general-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center-align items */
-      gap: 15px; /* Add spacing between rows */
-  }
-
-  .director-general {
-      display: flex;
-      flex-wrap: wrap; /* Allow directors to wrap */
-      gap: 15px;
-      justify-content: center; /* Center-align directors */
-  }
-
-  .director {
-      flex: 1 1 calc(50% - 20px); /* Ensure two directors per row */
-      max-width: calc(50% - 20px);
-      text-align: center;
-  }
-}
-
-/* General connector styles */
-.connector {
-  position: absolute;
-  width: 2px; /* Thickness of the connector */
-  background-color: #007bff; /* Connector color */
-  left: 50%; /* Center the connector */
-  top: 100%; /* Start from the bottom of the node */
   transform: translateX(-50%);
+  border-left: 2px solid #ccc;
+  height: 20px;
 }
-
-/* Default height for larger screens */
-.connector {
-  height: 60px; /* Default connector height */
-}
-
-/* Adjust connector length for smaller screens */
-@media (max-width: 768px) {
-  /* Connector for Member x2 to Director General */
-  .organogram-level > .organogram-node .connector {
-    height: 140px; /* Increase height for smaller screens */
-  }
-
-  /* Connector adjustments for complex layouts */
-  .connector.vertical {
-    height: 120px; /* Adjust this for the gap between levels */
-  }
-
-  .connector.horizontal {
-    height: 2px; /* Horizontal connectors remain thin */
-    width: 70px; /* Adjust based on layout gaps */
-    top: calc(100% + 10px); /* Adjust vertical position */
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* Director General Container Adjustments */
-.director-general-container {
-  position: relative;
-  margin-top: 20px; /* Add spacing from Member x2 */
-}
-
-.director-general .connector {
-  height: 80px; /* Adjust connector height for Director General */
+.orgchart .node .field_0, /* Name field */
+.orgchart .node .field_1 { /* Title field */
+    font-size: 12px; /* Smaller font for both fields */
+    word-break: break-word; /* Allow long words to break */
+    text-align: center;
 }
 
 
