@@ -112,7 +112,8 @@ Free Bootstrap 5 HTML Template
                         <div class="news-ticker bg-blue text-white d-flex align-items-center py-1 px-2 rounded">
                             <strong class="me-2 flex-shrink-0">Latest News:</strong>
                             <marquee behavior="scroll" direction="left" class="flex-grow-1">
-                                NSDRA launches new seed quality standards! | Upcoming seminar on agricultural technology! |
+                                <strong>Corrigendum:</strong> Pay Order/Demand Draft deadline extended to 26-09-2025 |
+NSDRA launches new seed quality standards! | Upcoming seminar on agricultural technology! |
                                 Enhancing agricultural productivity with new seed varieties!
                             </marquee>
                         </div>
@@ -239,6 +240,24 @@ Free Bootstrap 5 HTML Template
             
                     <!-- News Grid -->
                     <div class="row">
+
+                        <!-- Corrigendum (click to open modal) -->
+<div class="col-lg-4 col-md-6 col-12 mb-4">
+  <div class="news-card shadow-sm p-3 rounded border border-success">
+    <div class="news-image-wrapper mb-3">
+      <img src="images/news/nsdra-jobs-corrigendum.jpg" alt="NSDRA Corrigendum" class="img-fluid rounded">
+    </div>
+    <h5 class="news-title mb-2 text-success">CORRIGENDUM — NSDRA</h5>
+    <p class="news-date text-muted">Published on: September 16, 2025</p>
+    <p class="news-description text-muted mb-3">
+      Extension for Pay Order/Demand Draft submission to <strong>Friday, 26-09-2025</strong>. Click to read full notice.
+    </p>
+    <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#corrigendumModal">
+      Read Corrigendum
+    </button>
+  </div>
+</div>
+
                         <!-- News Card 1 -->
                         <div class="col-lg-4 col-md-6 col-12 mb-4">
                             <div class="news-card shadow-sm p-3 rounded">
@@ -455,6 +474,58 @@ Free Bootstrap 5 HTML Template
         <script src="js/modernizr.js"></script>
         <script src="js/animated-headline.js"></script>
         <script src="js/custom.js"></script>
+
+        <!-- Corrigendum Modal -->
+<div class="modal fade" id="corrigendumModal" tabindex="-1" aria-labelledby="corrigendumTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="corrigendumTitle">CORRIGENDUM</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body pt-0">
+        <div class="small text-muted mb-3">Published on: September 16, 2025</div>
+
+        <!-- Optional artwork -->
+        <img src="images/news/nsdra-jobs-corrigendum.jpg" class="img-fluid rounded border mb-3" alt="NSDRA Corrigendum">
+
+        <div class="p-3 rounded bg-light border">
+          <div class="fw-semibold">Government of Pakistan — M/o National Food Security &amp; Research</div>
+          <div>National Seed Development and Regulatory Authority (NSDRA)</div>
+        </div>
+
+        <p class="mt-3">
+          In continuation of the National Seed Development and Regulatory Authority (NSDRA) Consolidated Advertisement
+          No. 01/2025, published on 10-08-2025 in <em>Daily Dunya</em> and <em>The News</em> dated 11-08-2025, vide
+          PID No. (I)1205/25, regarding recruitment against vacant posts in the NSDRA, it is notified that the last
+          date for submission of Pay Order/Demand Draft in the name of NSDRA has been extended up to
+          <strong>Friday 26-09-2025</strong>.
+        </p>
+
+        <p>
+          All applicants who have applied through the National Job Portal (NJP) and have not yet submitted their Pay
+          Order are hereby advised to submit the required Pay Order/Demand Draft in the name of NSDRA in order to be
+          considered further. All other terms and conditions of the advertisement shall remain unchanged.
+        </p>
+
+        <p>
+          The pay order/demand draft must be sent via registered courier at the following address:
+        </p>
+
+        <address class="mb-0">
+          <strong>National Seed Development and Regulatory Authority</strong><br>
+          Plot No. 25, Street No. 6, Sector H-9/1, Islamabad.
+        </address>
+      </div>
+
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     </body>
 </html>
