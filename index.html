@@ -135,7 +135,7 @@
                         <div class="news-ticker bg-blue text-white d-flex align-items-center py-1 px-2 rounded">
                             <strong class="me-2 flex-shrink-0">Latest News:</strong>
                             <marquee behavior="scroll" direction="left" class="flex-grow-1">
-                                <strong>Corrigendum:</strong> Pay Order/Demand Draft deadline extended to 12-10-2025 | NSDRA launches new seed quality standards! | Upcoming seminar on agricultural technology! |
+                                <strong>Latest Update:</strong> Written Test Course Outline & Date Finalized (Jan 18, 2026). <a href="pdf/NSDRA_Written_Test_Course_Outline_January_18_2026.pdf" target="_blank" style="color: #fff; text-decoration: underline;">Click here to download</a>. | <strong>Corrigendum:</strong> Pay Order/Demand Draft deadline extended to 12-10-2025 | NSDRA launches new seed quality standards! | Upcoming seminar on agricultural technology! |
                                 Enhancing agricultural productivity with new seed varieties!
                             </marquee>
                         </div>
@@ -193,7 +193,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+                            <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="glow-text">More</span></a>
 
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://www.federalseed.gov.pk/" target="_blank" rel="noopener noreferrer">FSC&RD</a></li>
@@ -201,7 +201,7 @@
                                 <!-- <li><a class="dropdown-item" href="vec.html">VEC</a></li> -->
                                 <li><a class="dropdown-item" href="media.html">Media</a></li>
                                 <li><a class="dropdown-item" href="resources.html">Resources</a></li>
-                                <li><a class="dropdown-item" href="press-release.html">News/ Press Releases</a></li>
+                                <li><a class="dropdown-item" href="press-release.html"><span class="glow-text">News/ Press Releases</span></a></li>
 
 
                                 <!-- <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li> -->
@@ -822,19 +822,17 @@
         <script src="js/animated-headline.js"></script>
         <script src="js/custom.js"></script>
         <!-- Corrigendum Modal -->
-<div class="modal fade" id="corrigendumModal" tabindex="-1" aria-labelledby="corrigendumTitle" aria-hidden="true">
+        <!-- Course Outline Modal -->
+<div class="modal fade" id="courseOutlineModal" tabindex="-1" aria-labelledby="courseOutlineTitle" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header border-0">
-        <h5 class="modal-title" id="corrigendumTitle">CORRIGENDUM</h5>
+        <h5 class="modal-title" id="courseOutlineTitle">WRITTEN TEST COURSE OUTLINE & DATE ANNOUNCED</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
       <div class="modal-body pt-0">
-        <div class="small text-muted mb-3">Published on: September 16, 2025</div>
-
-        <!-- Optional artwork -->
-        <img src="images/news/nsdra-jobs-corrigendum-2.jpg" class="img-fluid rounded border mb-3" alt="NSDRA Corrigendum">
+        <div class="small text-muted mb-3">Published on: January 1, 2026</div>
 
         <div class="p-3 rounded bg-light border">
           <div class="fw-semibold">Government of Pakistan — M/o National Food Security &amp; Research</div>
@@ -842,27 +840,27 @@
         </div>
 
         <p class="mt-3">
-          In continuation of the National Seed Development and Regulatory Authority (NSDRA) Consolidated Advertisement
-          No. 01/2025, published on 10-08-2025 in <em>Daily Dunya</em> and <em>The News</em> dated 11-08-2025, vide
-          PID No. (I)1205/25, regarding recruitment against vacant posts in the NSDRA, it is notified that the last
-          date for submission of Pay Order/Demand Draft in the name of NSDRA has been extended up to
-          <strong>Sunday 12-10-2025</strong>.
+          The National Seed Development and Regulatory Authority (NSDRA) is pleased to announce that the <strong>Written Test Course Outline and Test Date</strong> have been finalized.
         </p>
 
         <p>
-          All applicants who have applied through the National Job Portal (NJP) and have not yet submitted their Pay
-          Order are hereby advised to submit the required Pay Order/Demand Draft in the name of NSDRA in order to be
-          considered further. All other terms and conditions of the advertisement shall remain unchanged.
+            <strong>Test Date:</strong> Sunday, January 18, 2026
         </p>
-
+        
         <p>
-          The pay order/demand draft must be sent via registered courier at the following address:
+            Please download the official course outline PDF below for detailed topics and prepare accordingly.
         </p>
 
-        <address class="mb-0">
-          <strong>National Seed Development and Regulatory Authority</strong><br>
-          Plot No. 25, Street No. 6, Sector H-9/1, Islamabad.
-        </address>
+        <div class="text-center mt-4">
+             <a href="pdf/NSDRA_Written_Test_Course_Outline_January_18_2026.pdf" target="_blank" class="btn btn-primary">
+                <i class="bi bi-file-earmark-pdf"></i> Download Course Outline
+             </a>
+        </div>
+
+        <p class="mt-4 text-muted small">
+          <strong>Note:</strong> Candidates are advised to bring their original CNIC and Roll Number Slip to the examination center.
+        </p>
+
       </div>
 
       <div class="modal-footer border-0">
@@ -873,9 +871,9 @@
 </div>
 
 <script>
-  // Always open the Corrigendum modal on page load
+  // Always open the Course Outline modal on page load
   document.addEventListener("DOMContentLoaded", function () {
-    var el = document.getElementById("corrigendumModal");
+    var el = document.getElementById("courseOutlineModal");
     if (!el || typeof bootstrap === "undefined" || !bootstrap.Modal) return;
     // Create/show the modal (will open on every visit)
     var modal = bootstrap.Modal.getOrCreateInstance(el, {
