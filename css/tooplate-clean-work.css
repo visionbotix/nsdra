@@ -2979,7 +2979,7 @@ h4 {
   GLOWING TEXT ANIMATION
 -----------------------------------------*/
 .glow-text {
-  animation: text-glow 2s ease-in-out infinite alternate;
+  /* animation: text-glow 2s ease-in-out infinite alternate; */
   font-weight: bold;
   position: relative;
   display: inline-block;
