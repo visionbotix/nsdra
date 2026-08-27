@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Challan forms for Seed Company/SBE/Organization/Nursery registration and Variety Evaluation Committee (VEC) department fee, issued by the National Seed Development and Regulatory Authority (NSDRA).">
+    <meta name="author" content="">
+
+    <title>Registration Challan | National Seed Development and Regulatory Authority</title>
+
+    <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="images/favicon/site.webmanifest" />
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/tooplate-clean-work.css?v=1.1" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Challan page custom styles (mirrors tender-notice-banner / tender-card theme) */
+        .tender-notice-banner {
+            background: linear-gradient(135deg, #1a4b8c 0%, #0d6efd 60%, #03a5fc 100%);
+            color: #fff;
+            border-radius: 14px;
+            padding: 32px 36px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 30px rgba(13, 110, 253, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .tender-notice-banner::before {
+            content: "";
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 180px; height: 180px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 50%;
+        }
+        .tender-notice-banner::after {
+            content: "";
+            position: absolute;
+            bottom: -60px; left: -30px;
+            width: 220px; height: 220px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        .tender-notice-banner .badge-new {
+            background: #ffc107;
+            color: #212529;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        .tender-notice-banner h2 {
+            color: #fff;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .tender-notice-banner p {
+            color: rgba(255,255,255,0.88);
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* Challan cards (based on tender-card) */
+        .tender-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            padding: 28px 28px 22px 28px;
+            height: 100%;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1.5px solid #e9eaeb;
+            position: relative;
+            overflow: hidden;
+        }
+        .tender-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 36px rgba(13,110,253,0.15);
+            border-color: #0d6efd;
+        }
+        .tender-card .card-accent {
+            position: absolute;
+            top: 0; left: 0;
+            width: 5px;
+            height: 100%;
+            border-radius: 14px 0 0 14px;
+        }
+        .tender-card .category-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+        .tender-card .tender-icon {
+            font-size: 2.6rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .tender-card h5 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .tender-card .tender-meta {
+            font-size: 0.82rem;
+            color: #6c757d;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tender-card .tender-desc {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .tender-card .btn-download {
+            font-size: 0.88rem;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 9px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .tender-card .btn-download:hover {
+            transform: scale(1.03);
+        }
+        .badge-new-inline {
+            background: #198754;
+            color: #fff;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+
+        /* Summary stats bar */
+        .tenders-stats {
+            background: #f8faff;
+            border: 1.5px solid #d0e4ff;
+            border-radius: 12px;
+            padding: 18px 24px;
+            margin-bottom: 36px;
+        }
+        .tenders-stats .stat-item {
+            text-align: center;
+        }
+        .tenders-stats .stat-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0d6efd;
+        }
+        .tenders-stats .stat-label {
+            font-size: 0.82rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Important note box */
+        .important-note {
+            background: #fff8e1;
+            border: 1.5px solid #ffe082;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 40px;
+        }
+        .important-note h6 {
+            color: #e65100;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        .important-note ul {
+            margin-bottom: 0;
+            padding-left: 18px;
+        }
+        .important-note ul li {
+            font-size: 0.9rem;
+            color: #37474f;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <!-- Main Header Content -->
+            <div class="row align-items-center py-1">
+                <!-- Left Side: Logo and Organization Details -->
+                <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+                    <a href="index.html">
+                        <div class="logo-container">
+                            <div class="logo-outer">
+                                <img src="images/outer-logo.png" alt="Outer Logo" class="outer-logo-img">
+                            </div>
+                            <div class="logo-inner">
+                                <img src="images/inner-logo.png" alt="Inner Logo" class="inner-logo-img">
+                            </div>
+                        </div>
+                    </a>
+                    <div class="d-flex flex-column">
+                        <p class="mb-0 d-flex align-items-center">
+                            <i class="bi-house-fill me-2"></i>
+                            <strong>National Seed Development and Regulatory Authority</strong>
+                        </p>
+                        <p class="mb-0 ms-4 ps-0">Cabinet Division</p>
+                        <p class="mb-0 ms-4 ps-0">Government of Pakistan</p>
+                    </div>
+                </div>
+
+                <!-- Right Side: Social Icons and Contact Information -->
+                <div class="col-lg-4 col-md-6 col-12 text-end">
+                    <div class="d-flex justify-content-lg-end justify-content-md-end justify-content-start align-items-center">
+                        <a href="#" class="text-white me-3"><i class="bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi-linkedin"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi-instagram"></i></a>
+                        <p class="mb-0 d-flex align-items-center ms-3">
+                            <i class="site-header-icon bi-whatsapp me-2"></i>
+                            <a href="tel:+92519265453" class="text-white">+92-51-9265453</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scrolling News Ticker -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="news-ticker bg-blue text-white d-flex align-items-center py-1 px-2 rounded">
+                        <strong class="me-2 flex-shrink-0">Latest News:</strong>
+                        <marquee behavior="scroll" direction="left" class="flex-grow-1">
+                            NEW TENDERS ISSUED — 25 May 2026: Civil Works Tender Notice &amp; IT Tender Notice now available for download! | Registration Challan Forms now available online! | NSDRA launches new seed quality standards!
+                        </marquee>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg" style="margin-top: 90px;">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="about.html" id="navbarLightDropdownMenuLink"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                            <li><a class="dropdown-item" href="about.html">The NSDRA</a></li>
+                            <li><a class="dropdown-item" href="#">Federal Minister Food Security and Research</a></li>
+                            <li><a class="dropdown-item" href="#">Federal Secretary</a></li>
+                            <li><a class="dropdown-item" href="chairperson.html">Chairperson</a></li>
+                            <li><a class="dropdown-item" href="organogram.html">Organogram</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="governance.html">Governance</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="legislation.html">Legislation</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarLightDropdownMenuLink2"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="glow-text">More</span></a>
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink2">
+                            <li><a class="dropdown-item" href="http://www.federalseed.gov.pk/" target="_blank" rel="noopener noreferrer">FSC&RD</a></li>
+                            <li><a class="dropdown-item" href="https://www.pbrr.gov.pk/" target="_blank" rel="noopener noreferrer">PBRR</a></li>
+                            <li><a class="dropdown-item" href="media.html">Media</a></li>
+                            <li><a class="dropdown-item" href="resources.html">Resources</a></li>
+                            <li><a class="dropdown-item" href="tenders.html">Tenders</a></li>
+                            <li><a class="dropdown-item active" href="challan.html"><span class="glow-text">Registration Challan</span></a></li>
+                            <li><a class="dropdown-item" href="press-release.html">News/ Press Releases</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+
+        <section class="banner-section d-flex justify-content-center align-items-end">
+            <div class="section-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-12">
+                        <h1 class="text-white mb-lg-0">Registration Challan</h1>
+                    </div>
+                    <div class="col-lg-4 col-12 d-flex justify-content-lg-end align-items-center ms-auto">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Registration Challan</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-5" id="challan-section">
+            <div class="container">
+
+                <!-- Announcement Banner -->
+                <div class="tender-notice-banner">
+                    <span class="badge-new">Fee Challan Forms</span>
+                    <h2><i class="bi bi-receipt me-2"></i>Registration Challan Forms</h2>
+                    <p>
+                        Bank challan forms required for Seed Company/SBE/Organization/Nursery registration fee and Variety Evaluation Committee (VEC) fee. Applicants must download, fill in, and deposit the appropriate challan at the designated bank before submitting their registration documents.
+
+ 
+
+                    </p>
+                </div>
+
+                <!-- Stats Bar 
+                <div class="tenders-stats mb-4">
+                    <div class="row align-items-center gy-3">
+                        <div class="col-6 col-md-3 stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Challan Forms</div>
+                        </div>
+                        <div class="col-6 col-md-3 stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Fee Categories</div>
+                        </div>
+                        <div class="col-6 col-md-3 stat-item">
+                            <div class="stat-number">PDF</div>
+                            <div class="stat-label">Format</div>
+                        </div>
+                        <div class="col-6 col-md-3 stat-item">
+                            <div class="stat-number">NSDRA</div>
+                            <div class="stat-label">Issuing Authority</div>
+                        </div>
+                    </div>
+                </div>-->
+
+                <!-- Section heading -->
+                <h4 class="mb-1 fw-bold">Available Challan Forms</h4>
+                <p class="text-muted mb-4" style="font-size:0.93rem;">Click any card to download the corresponding challan form.</p>
+
+                <!-- Challan Cards -->
+                <div class="row g-4">
+
+                    <!-- Card 1: Seed Company/SBE/Organization/Nursery Registration Challan -->
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="tender-card">
+                            <div class="card-accent" style="background: linear-gradient(180deg, #198754, #20c997);"></div>
+                            <span class="category-badge" style="background:#d1e7dd; color:#0a3622;">
+                                <i class="bi bi-building-fill-check me-1"></i> Registration Fee
+                            </span>
+                            <i class="bi bi-file-earmark-text-fill tender-icon" style="color:#198754;"></i>
+                            <h5>Challan Form for Seed Company/SBE/Organization/Nursery Registration <span class="badge-new-inline">New</span></h5>
+                            <div class="tender-meta">
+                                <i class="bi bi-calendar3"></i> Applicable for New &amp; Renewal Registration
+                            </div>
+                            <div class="tender-meta">
+                                <i class="bi bi-building-fill"></i> National Seed Development &amp; Regulatory Authority
+                            </div>
+                            <p class="tender-desc">
+                                Official bank challan form required for registration of Seed Companies, Seed Business Enterprises (SBE), Organizations, and Nurseries. Applicants must deposit the prescribed fee in the designated bank account and attach the paid challan copy with their registration application.
+                            </p>
+                            <a href="pdf/Challan_Form_SeedCompany_SBE_Organization_Nursery.pdf" target="_blank" class="btn btn-success btn-download">
+                                <i class="bi bi-download"></i> Download PDF
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Dept Fee VEC Challan -->
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="tender-card">
+                            <div class="card-accent" style="background: linear-gradient(180deg, #0d6efd, #0dcaf0);"></div>
+                            <span class="category-badge" style="background:#cfe2ff; color:#084298;">
+                                <i class="bi bi-clipboard2-data-fill me-1"></i> VEC Fee
+                            </span>
+                            <i class="bi bi-file-earmark-text-fill tender-icon" style="color:#0d6efd;"></i>
+                            <h5>Challan Form – Dept Fee Variety Evaluation Committee (VEC) <span class="badge-new-inline">New</span></h5>
+                            <div class="tender-meta">
+                                <i class="bi bi-calendar3"></i> Applicable for VEC Evaluation Requests
+                            </div>
+                            <div class="tender-meta">
+                                <i class="bi bi-building-fill"></i> National Seed Development &amp; Regulatory Authority
+                            </div>
+                            <p class="tender-desc">
+                                Official bank challan form for depositing the department fee payable to the Variety Evaluation Committee (VEC). Applicants seeking variety evaluation and approval must submit the paid challan along with their evaluation request.
+                            </p>
+                            <a href="pdf/Challan_Form_VEC.pdf" target="_blank" class="btn btn-primary btn-download">
+                                <i class="bi bi-download"></i> Download PDF
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h6><i class="bi bi-exclamation-triangle-fill me-2"></i>Important Instructions for Applicants</h6>
+                    <ul>
+                        <li>Download the relevant challan form, fill in all required details clearly, and deposit the prescribed fee at the designated bank branch.</li>
+                        <li>Attach the original paid bank challan/deposit slip with the registration or evaluation application, as applicable.</li>
+                        <li>Applications submitted without a valid paid challan will not be processed.</li>
+                        <li>Ensure the CNIC/Organization details on the challan match the details provided in the application form.</li>
+                        <li>For queries regarding fee amounts or bank details, contact the NSDRA office at <strong>info@nsdra.gov.pk</strong> or <strong>+92-51-9265453</strong>.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12 col-12 d-flex align-items-center mb-4 pb-2">
+                    <div>
+                        <a href="index.html">
+                            <div class="logo-container">
+                                <div class="logo-outer">
+                                    <img src="images/outer-logo.png" alt="Outer Logo" class="outer-logo-img">
+                                </div>
+                                <div class="logo-inner">
+                                    <img src="images/inner-logo.png" alt="Inner Logo" class="inner-logo-img">
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="footer-menu d-flex flex-wrap ms-5">
+                            <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">About Us</a></li>
+                            <li class="footer-menu-item"><a href="governance.html" class="footer-menu-link">Governance</a></li>
+                            <li class="footer-menu-item"><a href="legislation.html" class="footer-menu-link">Legislation</a></li>
+                            <li class="footer-menu-item"><a href="contact.html" class="footer-menu-link">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-5 col-12 mb-4 mb-lg-0">
+                        <h5 class="site-footer-title mb-3">Our Focus Area</h5>
+                        <ul class="footer-menu">
+                            <li class="footer-menu-item">
+                                <a href="#" class="footer-menu-link">
+                                    <i class="bi-chevron-double-right footer-menu-link-icon me-2"></i>Seed Quality Standards
+                                </a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <a href="#" class="footer-menu-link">
+                                    <i class="bi-chevron-double-right footer-menu-link-icon me-2"></i>Research &amp; Innovation
+                                </a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <a href="#" class="footer-menu-link">
+                                    <i class="bi-chevron-double-right footer-menu-link-icon me-2"></i>Climate Resilience
+                                </a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <a href="#" class="footer-menu-link">
+                                    <i class="bi-chevron-double-right footer-menu-link-icon me-2"></i>Farmer Support
+                                </a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <a href="#" class="footer-menu-link">
+                                    <i class="bi-chevron-double-right footer-menu-link-icon me-2"></i>Policy Development
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
+                        <h5 class="site-footer-title mb-3">Office</h5>
+                        <p class="text-white d-flex mt-3 mb-2">
+                            <i class="bi-geo-alt-fill me-2"></i>
+                            NSDRA Head Office, PCRET Complex, Plot No 25, H-9/1, Islamabad
+                        </p>
+                        <p class="text-white d-flex mb-2">
+                            <i class="bi-telephone-fill me-2"></i>
+                            <a href="tel:+92519265453" class="site-footer-link">+92-51-9265453</a>
+                        </p>
+                        <p class="text-white d-flex">
+                            <i class="bi-envelope-fill me-2"></i>
+                            <a href="mailto:info@nsdra.gov.pk" class="site-footer-link">info@nsdra.gov.pk</a>
+                        </p>
+                        <ul class="social-icon mt-4">
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link button button--skoll">
+                                    <span></span><span class="bi-twitter"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link button button--skoll">
+                                    <span></span><span class="bi-facebook"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link button button--skoll">
+                                    <span></span><span class="bi-instagram"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-6 mt-3 mt-lg-0 mt-md-0">
+                        <div class="featured-block">
+                            <h5 class="text-white mb-3">Office Hours</h5>
+                            <strong class="d-block text-white mb-1">Mon - Fri</strong>
+                            <p class="text-white mb-3">9:00 AM - 5:00 PM</p>
+                            <strong class="d-block text-white mb-1">Sat - Sun</strong>
+                            <p class="text-white mb-0">Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <p class="copyright-text mb-0">Copyright © 2024 National Seed Development and Regulatory Authority.</p>
+                        </div>
+                        <div class="col-lg-6 col-12 text-end">
+                            <p class="copyright-text mb-0">Designed by <a href="https://www.visionbotix.com" target="_parent">visionbotix</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.backstretch.min.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/animated-headline.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>
