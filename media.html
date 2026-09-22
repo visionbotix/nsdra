@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="">
+    <meta name="description" content="Official media archive of the National Seed Development and Regulatory Authority: photographs, videos and coverage of seminars, conferences, meetings and field visits.">
     <meta name="author" content="">
 
     <title>Media | National Seed Development Regulatory Authority</title>
@@ -31,6 +31,7 @@
     <link href="css/bootstrap-icons.css" rel="stylesheet">
 
     <link href="css/tooplate-clean-work.css?v=1.1" rel="stylesheet">
+    <link href="css/media.css?v=5.0" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
 
@@ -240,53 +241,50 @@ Free Bootstrap 5 HTML Template
             </div>
         </section>
 
-        <section class="media-section py-5" id="media-section">
-            <div class="container">
-                <!-- Page Title -->
-                <h2 class="text-center mb-4">Media</h2>
-                <p class="text-center text-muted mb-5">
-                    Stay tuned for updates on upcoming events and meetings organized by NSDRA.
-                </p>
+        <div id="ma-root">
 
-                <!-- Coming Soon Card -->
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 col-md-8 col-12">
-                        <div class="coming-soon-card text-center p-4 rounded shadow">
-                            <i class="bi-calendar-event display-4 text-primary mb-3"></i>
-                            <h4 class="mb-3">Events & Meetings</h4>
-                            <p class="text-muted">
-                                We are working on organizing exciting events and meetings to enhance collaboration and
-                                innovation in the seed sector. Stay tuned for updates!
+            <!-- Introduction + search / tags -->
+            <section class="ma-intro" id="ma-intro">
+                <span class="ma-intro-decor" aria-hidden="true"></span>
+                <div class="container">
+                    <div class="ma-intro-grid">
+
+                        <div class="ma-intro-text">
+                            <div class="ma-intro-top">
+                                <span class="ma-intro-icon" aria-hidden="true"><i class="bi bi-images"></i></span>
+                                <p class="ma-intro-eyebrow">Official Media Archive</p>
+                            </div>
+                            <h2>Media</h2>
+                            <p class="ma-lead">
+                                Photographs, videos and advisories from NSDRA
+                                <strong>seminars</strong>, <strong>conferences</strong>, <strong>meetings</strong>
+                                and <strong>field visits</strong>, along with other official activities.
                             </p>
-                            <button class="btn btn-primary mt-3" disabled>Coming Soon</button>
                         </div>
+
+                        <form class="ma-finder" id="ma-finder" role="search" autocomplete="off" hidden>
+                            <label class="visually-hidden" for="ma-search">Search media</label>
+                            <div class="ma-search">
+                                <i class="bi bi-search" aria-hidden="true"></i>
+                                <input type="search" id="ma-search" placeholder="Search city, organization…">
+                                <button type="button" class="ma-search-clear" id="ma-search-clear" aria-label="Clear search" hidden>
+                                    <i class="bi bi-x-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="ma-tagrow" id="ma-tags" role="group" aria-label="Filter by tag"></div>
+                            <p class="ma-result" id="ma-result" role="status" aria-live="polite"></p>
+                        </form>
+
                     </div>
                 </div>
+            </section>
 
-                <!-- Placeholder Section -->
-                <div class="row mt-5">
-                    <div class="col-lg-6 col-md-6 col-12 mb-4">
-                        <div class="placeholder-card text-center p-4 rounded shadow">
-                            <i class="bi-megaphone-fill display-4 text-warning mb-3"></i>
-                            <h5 class="mb-2">Upcoming Announcements</h5>
-                            <p class="text-muted">
-                                Updates on upcoming initiatives will be available soon.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="placeholder-card text-center p-4 rounded shadow">
-                            <i class="bi-people-fill display-4 text-success mb-3"></i>
-                            <h5 class="mb-2">Collaborative Meetings</h5>
-                            <p class="text-muted">
-                                Stay tuned for updates on scheduled meetings and discussions.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Blocks of cards are built from js/media-data.js -->
+            <div id="ma-sections">
+                <noscript><p class="text-center">Please enable JavaScript to view the media.</p></noscript>
             </div>
-        </section>
 
+        </div>
 
     </main>
 
@@ -460,6 +458,8 @@ Free Bootstrap 5 HTML Template
     <script src="js/modernizr.js"></script>
     <script src="js/animated-headline.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/media-data.js"></script>
+    <script src="js/media.js"></script>
 
 </body>
 
