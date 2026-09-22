@@ -242,6 +242,18 @@ window.NSDRA_MEDIA = {
             { src: 'images/media/cotton-travelling-seminar-2026/tandojam/field-visit-13.jpg' }
           ]
         },
+        {
+          title: 'MNSUAM',
+          label: 'Delegation Visit',
+          tags: ['Multan', 'Delegation Visit', 'MNSUAM'],
+          city: 'Multan',
+          venue: 'Muhammad Nawaz Sharif University of Agriculture, Multan (MNSUAM)',
+          organization: 'Muhammad Nawaz Sharif University of Agriculture, Multan (MNSUAM)',
+          description: 'Delegation visit of the Cotton Travelling Seminar 2026 to the Muhammad Nawaz Sharif University of Agriculture, Multan (MNSUAM).',
+          media: [
+            { type: 'video', src: 'images/media/cotton-travelling-seminar-2026/MNSUAM/NSDRA-CottonTravelling-Seminar-Visit-to-MNSUAM.mp4', poster: 'images/media/cotton-travelling-seminar-2026/MNSUAM/video-cover.png', title: 'Delegation Visit to MNSUAM' }
+          ]
+        },
       ]
     }
 
