@@ -2,7 +2,9 @@
  * NSDRA MEDIA PAGE - CONTENT FILE
  * =============================================================================
  * The Media page shows BLOCKS of cards. Each block = a heading + a grid of cards
- * (4 cards per row).
+ * (4 cards per row). One card = one place - its title is always just the city
+ * or venue name, and all of that place's photos and videos live in ONE folder
+ * together, whatever activities they cover (seminar, meeting, field visit...).
  *
  * TO HIDE A WHOLE BLOCK: select the block (from its opening  {  to its closing  },)
  * and comment it out (Ctrl + /  in most editors), or simply delete it.
@@ -17,14 +19,15 @@
  *   Individual photos are only reachable through their card.
  *
  * CARD FIELDS (fill only what you have; empty ones are not shown)
- *   title          short title on the card            'Faisalabad'
- *   label          small line above the title         'Seminar', 'Field Visit'
- *   tags           ['Faisalabad', 'Seminar']          (first 3 show on the card;
- *                  every tag you use also becomes a filter button under search)
+ *   title          the city or venue name, nothing else    'Faisalabad'
+ *   tags           ['Faisalabad', 'Seminar', 'Field Visit'] (first 3 show on the
+ *                  card; every tag you use also becomes a filter button under search)
  *   cover          cover picture; leave out to use the first photo automatically
  *   city, venue, date ('2026-03-12' or text), organization,
  *   conferenceName, topic, participants ['Name', ...], description
- *   media          list of files (below)
+ *   media          list of files (below) - mix photos and videos from every
+ *                  activity at that place in one list, in the order you want
+ *                  them to appear in the slider
  *
  * MEDIA FIELDS
  *   src            file path (required)
@@ -36,9 +39,10 @@
  * TO ADD A CARD:  copy a whole  { ... },  card and paste it in the list.
  * TO ADD A BLOCK: copy a whole  { title: ..., items: [ ... ] },  block.
  *
- * Each city that had more than one kind of activity (e.g. an indoor seminar
- * AND a field visit) is split into separate cards - one card per activity -
- * so photos and videos of different activities never mix inside one folder.
+ * BLOCK OPTIONS
+ *   collection: true     frames the block as ONE collection: a bordered panel with a
+ *                        heading and totals (albums / photos / videos). eyebrow: 'text'
+ *                        sets the small label above the title. Leave both out for a plain block.
  * =============================================================================
  */
 window.NSDRA_MEDIA = {
@@ -46,18 +50,17 @@ window.NSDRA_MEDIA = {
 
     // ==================== COTTON TRAVELLING SEMINAR 2026 ====================
     {
-      collection: true,          // frames this block as one collection: bordered panel + totals
+      collection: true,
       eyebrow: 'Travelling Seminar',
       title: 'Cotton Travelling Seminar 2026',
       description: 'Photographs and videos from each stop of the seminar (15\u201321 September 2026). Open a card to browse its media.',
       items: [
         {
           title: 'Faisalabad',
-          label: 'Seminar',
-          tags: ['Faisalabad', 'Seminar'],
+          tags: ['Faisalabad', 'Seminar', 'Field Visit'],
           city: 'Faisalabad',
           date: '2026-09-15',
-          description: 'Opening session of the Cotton Travelling Seminar 2026, followed by a briefing on trial results and presentations.',
+          description: 'Opening session of the Cotton Travelling Seminar 2026 at Faisalabad, followed by a field visit to the NCVT 2026-27 cotton variety trial layout.',
           media: [
             { src: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-01.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-02.jpg' },
@@ -66,17 +69,7 @@ window.NSDRA_MEDIA = {
             { src: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-05.jpg' },
             { type: 'video', src: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-video-01.mp4', poster: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-video-01-poster.jpg', duration: '0:17' },
             { type: 'video', src: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-video-02.mp4', poster: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-video-02-poster.jpg', duration: '0:16' },
-            { type: 'video', src: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-video-03.mp4', poster: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-video-03-poster.jpg', duration: '0:20' }
-          ]
-        },
-        {
-          title: 'Faisalabad',
-          label: 'Field Visit',
-          tags: ['Faisalabad', 'Field Visit'],
-          city: 'Faisalabad',
-          date: '2026-09-15',
-          description: 'Field visit to the NCVT 2026-27 cotton variety trial layout at Faisalabad.',
-          media: [
+            { type: 'video', src: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-video-03.mp4', poster: 'images/media/cotton-travelling-seminar-2026/faisalabad/seminar-video-03-poster.jpg', duration: '0:20' },
             { src: 'images/media/cotton-travelling-seminar-2026/faisalabad/field-visit-01.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/faisalabad/field-visit-02.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/faisalabad/field-visit-03.jpg' },
@@ -91,7 +84,6 @@ window.NSDRA_MEDIA = {
         },
         {
           title: 'Khanewal',
-          label: 'Field Visit',
           tags: ['Khanewal', 'Field Visit'],
           city: 'Khanewal',
           description: 'Field visit and inspection of the cotton variety trial site at Khanewal.',
@@ -108,11 +100,10 @@ window.NSDRA_MEDIA = {
         },
         {
           title: 'Lodhran',
-          label: 'Meeting',
-          tags: ['Lodhran', 'Meeting'],
+          tags: ['Lodhran', 'Meeting', 'Field Visit'],
           city: 'Lodhran',
           date: '2026-09-17',
-          description: 'Discussion session with growers and officials held at Lodhran.',
+          description: 'Discussion session with growers and officials at Lodhran, followed by a field walk and inspection of cotton trial plots.',
           media: [
             { src: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-01.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-02.jpg' },
@@ -122,17 +113,7 @@ window.NSDRA_MEDIA = {
             { src: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-06.jpg' },
             { type: 'video', src: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-video-01.mp4', poster: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-video-01-poster.jpg', duration: '0:29' },
             { type: 'video', src: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-video-02.mp4', poster: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-video-02-poster.jpg', duration: '0:16' },
-            { type: 'video', src: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-video-03.mp4', poster: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-video-03-poster.jpg', duration: '0:31' }
-          ]
-        },
-        {
-          title: 'Lodhran',
-          label: 'Field Visit',
-          tags: ['Lodhran', 'Field Visit'],
-          city: 'Lodhran',
-          date: '2026-09-17',
-          description: 'Field walk and inspection of cotton trial plots at Lodhran.',
-          media: [
+            { type: 'video', src: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-video-03.mp4', poster: 'images/media/cotton-travelling-seminar-2026/lodhran/meeting-video-03-poster.jpg', duration: '0:31' },
             { src: 'images/media/cotton-travelling-seminar-2026/lodhran/field-visit-01.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/lodhran/field-visit-02.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/lodhran/field-visit-03.jpg' },
@@ -148,62 +129,32 @@ window.NSDRA_MEDIA = {
         },
         {
           title: 'Sakrand',
-          label: 'Meeting',
-          tags: ['Sakrand', 'Meeting'],
+          tags: ['Sakrand', 'Meeting', 'Field Visit'],
           city: 'Sakrand',
           venue: 'Central Cotton Research Institute (CCRI), Sakrand',
-          description: 'Welcome and discussion session hosted at the Central Cotton Research Institute, Sakrand.',
+          description: 'Welcome and discussion session hosted at the Central Cotton Research Institute, Sakrand, followed by a field visit to the cotton trial plots. Includes news coverage of the seminar session.',
           media: [
             { src: 'images/media/cotton-travelling-seminar-2026/sakrand/meeting-01.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/sakrand/meeting-02.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/sakrand/meeting-03.jpg' },
-            { src: 'images/media/cotton-travelling-seminar-2026/sakrand/meeting-04.jpg' }
-          ]
-        },
-        {
-          title: 'Sakrand',
-          label: 'Field Visit',
-          tags: ['Sakrand', 'Field Visit'],
-          city: 'Sakrand',
-          venue: 'Central Cotton Research Institute (CCRI), Sakrand',
-          description: 'Field visit to the cotton trial plots at CCRI Sakrand.',
-          media: [
+            { src: 'images/media/cotton-travelling-seminar-2026/sakrand/meeting-04.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/sakrand/field-visit-01.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/sakrand/field-visit-02.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/sakrand/field-visit-03.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/sakrand/field-visit-04.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/sakrand/field-visit-05.jpg' },
-            { src: 'images/media/cotton-travelling-seminar-2026/sakrand/field-visit-06.jpg' }
-          ]
-        },
-        {
-          title: 'Sakrand',
-          label: 'Press Coverage',
-          tags: ['Sakrand', 'Press Coverage'],
-          city: 'Sakrand',
-          description: 'News coverage of the Cotton Travelling Seminar 2026 session at Sakrand.',
-          media: [
+            { src: 'images/media/cotton-travelling-seminar-2026/sakrand/field-visit-06.jpg' },
             { type: 'video', src: 'images/media/cotton-travelling-seminar-2026/sakrand/press-video-01.mp4', poster: 'images/media/cotton-travelling-seminar-2026/sakrand/press-video-01-poster.jpg', duration: '1:38' }
           ]
         },
         {
           title: 'Sukkur',
-          label: 'Meeting',
-          tags: ['Sukkur', 'Meeting'],
+          tags: ['Sukkur', 'Meeting', 'Field Visit'],
           city: 'Sukkur',
-          description: 'Welcome and reception session held at Sukkur.',
+          description: 'Welcome and reception session at Sukkur, followed by a field visit and inspection of the cotton variety trial site, including single-plant selection plots.',
           media: [
             { src: 'images/media/cotton-travelling-seminar-2026/sukkur/meeting-01.jpg' },
-            { src: 'images/media/cotton-travelling-seminar-2026/sukkur/meeting-02.jpg' }
-          ]
-        },
-        {
-          title: 'Sukkur',
-          label: 'Field Visit',
-          tags: ['Sukkur', 'Field Visit'],
-          city: 'Sukkur',
-          description: 'Field visit and inspection of the cotton variety trial site at Sukkur, including single-plant selection plots.',
-          media: [
+            { src: 'images/media/cotton-travelling-seminar-2026/sukkur/meeting-02.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/sukkur/field-visit-01.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/sukkur/field-visit-02.jpg' },
             { src: 'images/media/cotton-travelling-seminar-2026/sukkur/field-visit-03.jpg' },
@@ -222,7 +173,6 @@ window.NSDRA_MEDIA = {
         },
         {
           title: 'Tando Jam',
-          label: 'Field Visit',
           tags: ['Tando Jam', 'Field Visit'],
           city: 'Tando Jam',
           description: 'Field visit to the cotton trial site at Tando Jam.',
@@ -244,8 +194,7 @@ window.NSDRA_MEDIA = {
         },
         {
           title: 'MNSUAM',
-          label: 'Delegation Visit',
-          tags: ['Multan', 'Delegation Visit', 'MNSUAM'],
+          tags: ['Multan', 'MNSUAM', 'Delegation Visit'],
           city: 'Multan',
           venue: 'Muhammad Nawaz Sharif University of Agriculture, Multan (MNSUAM)',
           organization: 'Muhammad Nawaz Sharif University of Agriculture, Multan (MNSUAM)',
